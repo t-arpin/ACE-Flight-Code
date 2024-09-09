@@ -1,11 +1,11 @@
 #include "kalman.h"
 
 Kalman::KalmanFilter(float processNoise, float sensorNoise, float estimatedError, Vector3 initialValue) {
-  Q = processNoise;
-  R = sensorNoise;
-  P = estimatedError;
-  X = initialValue;
-  K = Vector3();
+  this->Q = processNoise;
+  this->R = sensorNoise;
+  this->P = estimatedError;
+  this->X = initialValue;
+  this->K = Vector3();
 }
 
 Vector3 Kalman::update(Vector3 measurement) {

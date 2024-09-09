@@ -71,6 +71,8 @@ class Rocket {
     void balistic();
     void stable();
     void landed();
+    void logData(const char* phase);
+    
 
   private:
     VoltageDivider voltageDivider;
@@ -78,11 +80,11 @@ class Rocket {
     Telem telem;
     IMU imu;
     BMP bmp;
-    
-    Kalman kalmanAcc(0.01, 0.1, 0.1, Vector3());
-    Kalman kalmanGyro(0.01, 0.1, 0.1, Vector3());
-    Kalman kalmanOri(0.01, 0.1, 0.1, Vector3());
-    Kalman kalmanAlt(0.01, 0.1, 0.1, Vector3(0, 0, 0));
+
+    Kalman kalmanAcc;
+    Kalman kalmanGyro;
+    Kalman kalmanOri;
+    Kalman kalmanAlt;
     
     // PID Values were tuned with a Simulink simulation and verified with AeroVECTOR https://github.com/GuidodiPasquo/AeroVECTOR
     // PID-Controller for calculation of motor mount orientation on y-axis
